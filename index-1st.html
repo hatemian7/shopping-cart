@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -53,7 +53,7 @@
                         <h5>Tax:</h5>
                     </div>
                     <div>
-                        <h5>$<span id="tax">204</span></h5>
+                        <h5>$0</h5>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between receipt">
@@ -61,7 +61,7 @@
                         <h5>Total:</h5>
                     </div>
                     <div>
-                        <h5>$<span id="total">1482</span></h5>
+                        <h5>$<span id="total">1278</span></h5>
                     </div>
                 </div>
             </div>
@@ -74,71 +74,52 @@
     </div>
 
     <script>
-
-            document.getElementById('numberofiphone').value = 1;
-            document.getElementById('numberofcase').value = 1;
+        function calculation(minus,plus,numberofproduct,productamount){
             
-            var numIphone = document.getElementById('numberofiphone').value;
-            numIphone = parseFloat(numIphone);
-            var iphoneAmount = 1219;
+            var numProduct = document.getElementById(numberofproduct).value;
+            numProduct = parseFloat(numProduct);
+            var proAmount = document.getElementById(productamount).innerText;
+            proAmount = parseFloat(proAmount);
             
 
-            document.getElementById('plus1').addEventListener('click', function(){
-                numIphone = numIphone + 1;
-                document.getElementById('numberofiphone').value = numIphone;
-                iphoneAmount = numIphone * 1219;
-                document.getElementById('iphone-amount').innerText = iphoneAmount;
-                totalAmount();
-            })
-            document.getElementById('minus1').addEventListener('click', function(){
-                numIphone = numIphone - 1;
-                if(numIphone<0){
-                    numIphone=0;
-                    alert('fuck you!')
+            document.getElementById(plus).addEventListener('click', function(){
+                numProduct = numProduct+1;
+                if(numberofproduct=='numberofiphone'){
+                    proAmount = proAmount+1219;
+                    numberofproduct.value = numProduct;
+                    document.getElementById(numberofproduct).value = numProduct;
+                    document.getElementById(productamount).innerText = proAmount;
+                }else{
+                    proAmount = proAmount+59;
+                    numberofproduct.value = numProduct;
+                    document.getElementById(numberofproduct).value = numProduct;
+                    document.getElementById(productamount).innerText = proAmount;
                 }
-                document.getElementById('numberofiphone').value = numIphone;
-                iphoneAmount = numIphone * 1219;
-                document.getElementById('iphone-amount').innerText = iphoneAmount;
-                totalAmount();
             })
-           
-                    
-            var numCase = document.getElementById('numberofcase').value;
-            numCase = parseFloat(numCase);
-            var caseAmount = 59;
-
-            document.getElementById('plus2').addEventListener('click', function(){
-                numCase = numCase + 1;
-                document.getElementById('numberofcase').value = numCase;
-                caseAmount = numCase * 59;
-                document.getElementById('case-amount').innerText = caseAmount;
-                totalAmount();
-            })
-            document.getElementById('minus2').addEventListener('click', function(){
-                numCase = numCase - 1;
-                if(numCase<0){
-                    numCase=0;
-                    alert('fuck you!')
+            document.getElementById(minus).addEventListener('click', function(){
+                numProduct = numProduct-1;
+                if(numberofproduct=='numberofiphone'){
+                    proAmount = proAmount-1219;
+                    document.getElementById(numberofproduct).value = numProduct;
+                    document.getElementById(productamount).innerText = proAmount;
+                }else{
+                    proAmount = proAmount-59;
+                    document.getElementById(numberofproduct).value = numProduct;
+                    document.getElementById(productamount).innerText = proAmount;
                 }
-                document.getElementById('numberofcase').value = numCase;
-                caseAmount = numCase * 59;
-                document.getElementById('case-amount').innerText = caseAmount;
-                totalAmount();
             })
-           
-   
-           function totalAmount(){
-            document.getElementById("subtotal").innerText = iphoneAmount + caseAmount;
-            var tempTax = (iphoneAmount + caseAmount)*0.16 + 0;
-            tempTax = parseInt(tempTax);
-            document.getElementById("tax").innerText = tempTax;
-            document.getElementById("total").innerText = iphoneAmount + caseAmount + tempTax;
+            return proAmount;
+        }
 
-           }
-           
-           
+        var totalIphoneAmount = calculation('minus1','plus1','numberofiphone','iphone-amount');
+        var totalCaseAmount = calculation('minus2','plus2','numberofcase','case-amount');
 
+        var total = totalCaseAmount+totalIphoneAmount;
 
+        document.getElementById('subtotal').innerText = total;
+            // subTotal = parseFloat(subTotal);
+        document.getElementById('total').innerText = total;
+            // totalAmount = parseFloat(totalAmount);
 
         
     </script>

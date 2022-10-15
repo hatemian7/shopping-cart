@@ -1,0 +1,72 @@
+.container{
+    background-color: #f6f5fa;
+    margin: 100px 110px;
+    padding: 60px 90px;
+}
+.box{
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px 25px;
+    margin-bottom: 50px;
+}
+.img-product img{
+    width: 115px;
+}
+.img-remove img{
+    width: 20px;
+}
+.uni-btn{
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    display: inline-flex;
+    justify-content: center; /* center the content horizontally */
+    align-items: center; /* center the content vertically */
+    font-size: 25px;
+    font-weight: bold;
+}
+.uni-btn:hover{
+    box-shadow: 2px 2px 6px aqua;
+}
+input{
+    font-size: 25px;
+    font-weight: bold;
+}
+#numberofiphone{
+    width: 60px;
+    background-color: rgba(236, 236, 236, 0.651);
+    border-radius: 10px;
+    border: none;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+#numberofcase{
+    width: 60px;
+    background-color: rgba(236, 236, 236, 0.651);
+    border-radius: 10px;
+    border: none;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+.items{
+    margin: 20px 0px;
+}
+.receipt{
+    width: 100%;
+    padding: 5px;
+}
+#checkout-btn{
+    padding: 12px 22px;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(54, 189, 54);
+}
+#checkout-btn:hover{
+    background-color: rgb(34, 90, 34);
+}
