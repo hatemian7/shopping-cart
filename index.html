@@ -93,6 +93,10 @@
 
             document.getElementById('plus1').addEventListener('click', function(){
                 numIphone = numIphone + 1;
+                if(numIphone>7){
+                    numIphone=7;
+                    alert('69 biyer porei vaibo ekhon 7ta niyei thako. btw teka beshi hoile amare de!')
+                }
                 document.getElementById('numberofiphone').value = numIphone;
                 iphoneAmount = numIphone * 1219;
                 document.getElementById('iphone-amount').innerText = iphoneAmount;
@@ -103,9 +107,6 @@
                 if(numIphone<0){
                     numIphone=0;
                     alert('fuck you!')
-                }else if(numIphone>69){
-                    numIphone=69;
-                    alert('teka beshi hoile amare de!')
                 }
                 document.getElementById('numberofiphone').value = numIphone;
                 iphoneAmount = numIphone * 1219;
